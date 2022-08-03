@@ -10,6 +10,13 @@ React native biometrics is a simple bridge to native iOS and Android keystore ma
 | `>= 2.0.0`                        | `>= 0.60`                     |
 | `<= 1.7.0`                        | `<= 0.59.x`                   |
 
+## Building process
+run following script to build library
+
+`yarn release:local`
+
+after that push to npm registry
+
 ## Getting started
 
 using either Yarn:
