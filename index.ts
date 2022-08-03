@@ -209,6 +209,7 @@ export default class ReactNativeBiometrics {
      * object.success = false if the user cancels, and rejects if anything fails
      * @param {Object} simplePromptOptions
      * @param {string} simplePromptOptions.promptMessage
+     * @param {string} simplePromptOptions.cancelButtonText
      * @param {string} simplePromptOptions.fallbackPromptMessage
      * @returns {Promise<Object>}  Promise that resolves an object with details about the biometrics result
      */

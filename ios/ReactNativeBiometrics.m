@@ -172,6 +172,7 @@ RCT_EXPORT_METHOD(createSignature: (NSDictionary *)params resolver:(RCTPromiseRe
 RCT_EXPORT_METHOD(simplePrompt: (NSDictionary *)params resolver:(RCTPromiseResolveBlock)resolve rejecter:(RCTPromiseRejectBlock)reject) {
   dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
     NSString *promptMessage = [RCTConvert NSString:params[@"promptMessage"]];
+    NSString *cancelButtonText = [RCTConvert NSString:params[@"cancelButtonText"]];
     NSString *fallbackPromptMessage = [RCTConvert NSString:params[@"fallbackPromptMessage"]];
     BOOL allowDeviceCredentials = [RCTConvert BOOL:params[@"allowDeviceCredentials"]];
 
@@ -184,6 +185,8 @@ RCT_EXPORT_METHOD(simplePrompt: (NSDictionary *)params resolver:(RCTPromiseResol
     } else {
       context.localizedFallbackTitle = @"";
     }
+
+    context.localizedCancelTitle = cancelButtonText;
 
     [context evaluatePolicy:laPolicy localizedReason:promptMessage reply:^(BOOL success, NSError *biometricError) {
       if (success) {
